@@ -1,0 +1,117 @@
+---
+title: "경제 활동 조사 보고서 분석 및 시각화"
+author: "오정우 201513408"
+date: '2019 12 18 '
+output: word_document
+---
+
+```{r setup}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(dplyr)
+```
+
+## 경제 활동 조사 보고서 분석 및 시각화
+```{r}
+raw = read.csv("raw_welfare.csv")
+```
+
+### 데이터 검토
+```{r}
+str(raw)
+```
+
+### 변수명 변경
+###### 데이터 컬럼이 너무 많기 때문에 필요한 컬럼만 추출하고 컬럼명 변경
+```{r}
+raw = rename(raw, Gender=h10_g3, 
+             Birth=h10_g4, 
+             Income=p1002_8aq1,
+             Code_job=h10_eco9)
+dat = raw %>% select(Gender, Birth, Income, Code_job)
+str(dat)
+```
+```{r}
+str(dat)
+```
+
+### 이상치 및 결측치 보정
+###### 성별 결측치는 없다.
+```{r}
+dat[is.na(dat[,"Gender"]),]
+```
+
+
+###### 태어난 연도 결측치도 없다.
+```{r}
+dat[is.na(dat[,"Birth"]),]
+```
+
+
+###### 수입은 평균으로 결측치를 보정해 주었다.
+```{r}
+dat[is.na(dat[,"Income"]),"Income"] = mean(dat$Income, na.rm=T)
+dat[is.na(dat[,"Income"]),]
+```
+
+
+###### `Koweps_Codebook.xlsx`를 보면 학생의 직종코드가 없다. 따라서 데이터에는 학생, 측 19세 이하는 직종코드가 NA로 나온다. 때문에 모든 학생들을 새로운 학생 코드 `9999`을 만들어 할당한다.
+```{r}
+dat[is.na(dat[,"Code_job"]),"Code_job"] = 9999
+dat[is.na(dat[,"Code_job"]),]
+```
+
+
+### 성별 연령대별 수입의 평균 분석
+
+###### 연령대에 따라 `Age` 컬럼을 지정해준다.
+```{r}
+head(dat$Birth)
+dat$Age = ifelse(dat$Birth >= 1996, "under",
+                  ifelse(dat$Birth >= 1980, "young",
+                         ifelse(dat$Birth >= 1955, "middle", "old")))
+dat$Age = as.factor(dat$Age)
+```
+
+
+###### `Age`컬럼을 팩터로 바꾸고 `plot()`을 그려본다.
+```{r}
+dat$Age = as.factor(dat$Age)
+plot(dat$Age)
+```
+
+위 그래프를 보면 35세 이상의 인구인 `middle`과 `old`가 다른 두 집합보다 상대적으로 많은 양을 차지하고 있는 것을 볼 수 있다.
+특히 `young`과 `middle`은 같은 나이 범위를 갖음에도 불구하고 차이가 확연한 것을 확인할 수 있다.
+이는 이 데이터를 가진 집단이 **고령화 사회**로 접어들었을을 짐작해볼 수 있다.
+
+
+### 직업별 수입 평균을 구하고, 수입이 많은 상위 10개 직업과 하위 10개 직업 탐색
+
+###### 직업별 수입 평균 
+```{r}
+Income_mean = dat %>% 
+  group_by(Code_job) %>% 
+  summarise(Income_mean = mean(Income))
+summary(Income_mean)
+plot(Income_mean, xlim=c(0, 1100))
+```
+
+
+###### 수입 상위 10개 직업
+```{r}
+Income_mean %>% 
+  arrange(desc(Income_mean)) %>% 
+  head(10)
+```
+
+수입이 제일 많은 직업은 `금속 재료 공학 기술자 및 시험원`이다.
+
+
+###### 수입 하위 10개 직업
+```{r}
+Income_mean %>% 
+  arrange(Income_mean) %>% 
+  head(10)
+```
+
+수입이 제일 적은 직업은 `청소원 및 환경 미화원`이다.

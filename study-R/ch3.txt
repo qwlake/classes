@@ -1,0 +1,7 @@
+getwd() : 현재 디렉토리
+setwd() : 작업 디렉토리 변경
+str() : 데이터 개요
+plot() : 그래프 그리기
+head() : 데이터 앞부분 보기
+summary() : 데이터 요약 보기
+ctrl shift m : dplyr 파이프라인 단축키
