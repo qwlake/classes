@@ -1,0 +1,245 @@
+@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+
+body {
+    font-family: 'Jeju Gothic', serif;
+}
+
+.product_page {
+    background-color: #5555;
+}
+
+.member_page {
+    background-color: #bbbb;
+    margin:20px;
+    height: 700px;
+    width: 500px;
+}
+
+.product_wrapper {
+    float: left;
+    height: 300px;
+    width: 300px;
+    text-align: center;
+    border: 0px;
+}
+
+.productBtn {
+	clear: both;
+	text-align: center;
+}
+
+#basket_pname {
+	width: 200px;
+}
+
+#basket_table, .pname {
+	color: #000000;
+	text-align: center;
+}
+
+img {
+    height: 200px;
+    width: 200px;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+span {
+    font-size: 13px;
+}
+
+div#slider {
+    overflow: hidden;
+    height: 600px;
+    width: 900px;
+}
+
+div#slider figure {
+    position: relative;
+    width: 500%;
+    margin: 0;
+    top: 0;
+    left: 0;
+    text-align: left;
+    font-size: 0;
+    -webkit-animation: 20s slidy ease-in-out infinite;
+    animation: 20s slidy ease-in-out infinite;
+}
+
+div#slider figure img {
+    height: 600px;
+    width: 20%;
+    float: left;
+}
+
+.main_banner {
+    border: 1px solid gray;
+}
+
+.main_banner,
+.main_banner img {
+	float: left;
+    height: 130px;
+    width: 177px;
+}
+
+.main_banner a:hover {
+    opacity: 0.8;
+}
+
+#info {
+    color: #ffffff;
+}
+
+.member_page_wrapper {
+    position: relative;
+    top: 130px;
+    left: 200px;
+}
+
+#login_table {
+    border: none;
+    border-collapse: collapse;
+    height: 350px;
+    width: 500px;
+    color: #000000;
+    background-color: #bbbb;
+    text-align: center;
+}
+
+#login_button {
+    background-color: #222222;
+    border: 0px;
+    color: aliceblue;
+    font-size: 17px;
+    height: 50px;
+    width: 200px;
+}
+
+.login_input {
+    border: 1px solid black;
+    width: 140px;
+    color: #000000;
+    background-color: #ffffff;
+}
+
+.bottom_button {
+    padding: 10px 30px;
+    background-color: #222222;
+    border: 0px;
+    color: aliceblue;
+    height: 30px;
+    width: 100px;
+}
+
+#id, #pw {
+    text-align: right;
+}
+
+
+fieldset {
+    border: 0px;
+    background-color: #bbbb;
+}
+
+.member_page_table {
+    border-collapse: collapse;
+    width: 460px;
+}
+
+#address {
+    height: 50px;
+    width: 220px;
+}
+
+.normal_input {
+    width: 150px;
+}
+
+.red_span {
+    color: red;
+}
+
+.th {
+    height: 30px;
+    background: #dddddd;
+    text-align: left;
+}
+
+.td {
+    background: #ffffff;
+}
+
+.radio {
+    width:15px;
+}
+
+#check_id {
+    border: 0px;
+    background-color: #000000;
+    color: #ffffff;
+    padding: 2px 5px;
+}
+
+#reset {
+    height: 40px;
+    width: 110px;
+    border: 0px;
+    background: #bbbbbb;
+    color: #ffffff;
+    font-size: 17px;
+    position: absolute;
+    top: 380px;
+    left: 120px;
+}
+
+#regdone {
+    height: 40px;
+    width: 110px;
+    border: 0px;
+    background: #000000;
+    color: #ffffff;
+    font-size: 17px;
+    position: absolute;
+    top: 380px;
+    left: 265px;
+}
+
+@keyframes slidy {
+    0% {
+        left: 0%;
+    }
+    15% {
+        left: 0%;
+    }
+    20% {
+        left: -100%;
+    }
+    35% {
+        left: -100%;
+    }
+    40% {
+        left: -200%;
+    }
+    55% {
+        left: -200%;
+    }
+    60% {
+        left: -300%;
+    }
+    75% {
+        left: -300%;
+    }
+    80% {
+        left: -400%;
+    }
+    85% {
+        left: -400%;
+    }
+    100% {
+        left: 0%;
+    }
+}
