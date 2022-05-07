@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block contents %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New</title>
+    <style>
+@font-face { font-family: 'NanumBarunpen'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumBarunpen.woff') format('woff'); font-weight: normal; font-style: normal; }
+html, body{
+    font-family: 'NanumBarunpen';
+    height: 100%;
+}
+
+#box-form{
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-top:-300px;
+    margin-left:-300px;
+    width:500px;
+    height:400px;
+    border:3px solid #FF6F61;
+    padding:20px;
+}
+
+#nae{
+    margin-bottom:50px;
+    margin-top:30px;
+}
+
+#button-submit{
+    display:inline-block;
+    margin-left:125px;
+}
+
+#input-submit {
+    background-color:#FF6F61;
+    color:white;
+    border:0px;
+    font-family: 'Binggrae-Bold';
+    width:300px;
+    height:50px;
+    font-size:40px;
+}
+
+label {
+    display: inline-block;
+    width: 90px;
+    text-align: right;
+    color:#FF6F61;
+    margin-right:30px;
+}
+
+input, textarea {
+    font: 15px sans-serif;
+    width: 300px;
+    box-sizing: border-box;
+    border: 1px solid #FF6F61;
+}
+
+    </style>
+</head>
+<body>
+<div id="box-form">
+    <form method="POST">
+        {% csrf_token %}
+        <div id="nae">
+            <table>
+                {{form.as_table}}
+            </table>
+        </div>
+        <div id="button-submit">
+            <input id="input-submit" type="submit" value="제출하기">
+        </div>
+    </form>
+</div>
+</body>
+</html>
+{% endblock %}

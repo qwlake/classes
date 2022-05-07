@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% block contents %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <style>
+@font-face { font-family: 'NanumBarunpen'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumBarunpen.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+body {
+  font-family: 'NanumBarunpen';
+}
+
+tr, th {
+  width: 50%;
+}
+
+table {
+  width: 100%;
+  border: 2px solid #FF6F61;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+}
+
+.right {
+  margin-left: 20px;
+  color:#FF6F61;
+}
+
+.btn{
+        text-decoration: none;
+        border: 1px solid #FF6F61;
+        border-radius: 3px;
+        color: #FF6F61;
+        background-color: white;
+        width: 50px;
+        height: 30px;
+        transition: all 0.2s;
+        font-size: 15px;
+        padding: 3px 5px;
+    }
+
+    a:hover{
+        background-color: #FF6F61;
+        color: white;
+    }
+
+.test {
+  display: inline-block;
+  border-radius: 3px;
+  padding: 10px 25px;
+  background: #fff;
+          transition: all 0.5s;
+
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+}
+
+.test span {
+  background: linear-gradient(to right, #FF6F61, #8ca6ce);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.test:hover {
+  background: linear-gradient(to right, #FF6F61, #8ca6ce);
+}
+
+.test:hover span {
+  background: none;
+  color: #fff;
+  -webkit-text-fill-color: #fff;
+}
+
+
+    </style>
+</head>
+<body>
+<br><br>
+<h1 class="test">
+    <span>Django CRUD PAGE (first team)</span>
+</h1>
+<div>
+    {% for post in posts_show.all %}
+    <table>
+        <th style="text-align: left">
+            <h1 class="right">{{post.title}}</h1>
+        </th>
+        <td>
+            <p>{{post.summary}}</p>
+            <p>{{post.pub_date}}</p>
+            <a class="btn" href="{% url 'detail' post.id %}">...more</a>
+            <a class="btn" href="{% url 'editpost' post.id %}">수정</a>
+            <a class="btn" href="{% url 'delete' post.id %}">삭제</a>
+        </td>
+    </table>
+    {% endfor %}
+</div>
+<br>
+<a class="btn" href="{% url 'newpost' %}">form을 이용하여 글쓰기</a>
+<br><br>
+</body>
+</html>
+{% endblock %}

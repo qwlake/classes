@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% block contents %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+    <style>
+    @font-face { font-family: 'NanumBarunpen'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumBarunpen.woff') format('woff'); font-weight: normal; font-style: normal; }
+    .deContainer {
+        border-width: 2px;
+        border-style: solid;
+        border-color: #FF6F61;
+        text-align: center;
+        padding: 30px 100px;
+        display: inline-block;
+        position: absolute;
+        left: 35%;
+        right: 35%;
+        top: 25%;
+        bottom:30%;
+        font-size: 20px;
+        word-wrap: break-word; /* Internet Explorer 5.5+ */
+        white-space: pre-wrap; /* css-3 */
+        white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+        white-space: -pre-wrap; /* Opera 4-6 */
+        white-space: -o-pre-wrap; /* Opera 7 */
+        word-break: break-all;
+        overflow: auto;
+    }
+
+
+    .scrBlind {
+
+    }
+    .makeColor {
+        color: #FF6F61;
+    }
+    cont {
+        color: black !important;
+    }
+
+    a,p {
+        font-family: 'NanumBarunpen';
+    }
+    #back {
+        text-decoration: none;
+        border: 1px solid #FF6F61;
+        border-radius: 3px;
+        color: #FF6F61;
+        background-color: white;
+        width: 50px;
+        height: 30px;
+        transition: all 0.2s;
+        font-size: 15px;
+        margin-top: px;
+        padding: 3px 5px;
+    }
+    #back:hover{
+        background-color: #FF6F61;
+        color: white;
+    }
+#fc {
+    position:absolute;
+    bottom:0;
+    margin-left: 750px;
+}
+
+
+
+    </style>
+</head>
+<body>
+
+<div class="scrBlind">
+        <div class="deContainer">
+            <p class="makeColor"> Title : <cont>{{post.title}}</cont></p>
+            <p class="makeColor"> Date : <cont>{{post.pub_date}}</cont> </p>
+            <p class="makeColor"> Content : <cont>{{post.content}}</cont> </p>
+            <br>
+            <a href="{% url 'index'%}" id="back" > Back </a>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,112 @@
+@font-face { font-family: 'BMJUA'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+#main {
+	background-image: url('./img/main_img.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	opacity: 1;
+	
+}
+
+#likelion {
+	background-image: url('https://scontent-icn1-1.xx.fbcdn.net/v/t1.0-9/16508905_1409094205782038_5866806659717364072_n.png?_nc_cat=105&_nc_ht=scontent-icn1-1.xx&oh=f5341954d7a80d302288261705fe046e&oe=5D3D0887');
+	background-size: cover;
+	background-position: center;
+}
+
+#github {
+	background-image: url('https://github.githubassets.com/images/modules/open_graph/github-mark.png');
+	background-size: cover;
+	background-position: center;
+}
+
+#past {
+	background-image: url('https://images.sadhguru.org/sites/default/files/media_files/iso/en/58566-shedding-the-burden-of-the-past.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+#future {
+	background-image: url('https://community.arm.com/cfs-filesystemfile/__key/communityserver-components-secureimagefileviewer/communityserver-blogs-components-weblogfiles-00-00-00-21-42/Code-on-computer-screen.jpg_2D00_900x506x2.jpg?_=636675047877703395');
+	background-size: cover;
+	background-position: center;
+}
+
+.BMJUA {
+	font-family: BMJUA;
+}
+
+.container {
+  max-width: 960px;
+}
+
+/*
+ * Custom translucent site header
+ */
+
+.site-header {
+  background-color: rgba(0, 0, 0, .85);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+.site-header a {
+  color: #999;
+  transition: ease-in-out color .15s;
+}
+.site-header a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+/*
+ * Dummy devices (replace them with your own or something else entirely!)
+ */
+
+.product-device {
+  position: absolute;
+  right: 10%;
+  bottom: -30%;
+  width: 300px;
+  height: 540px;
+  background-color: #333;
+  border-radius: 21px;
+  -webkit-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+
+.product-device::before {
+  position: absolute;
+  top: 10%;
+  right: 10px;
+  bottom: 10%;
+  left: 10px;
+  content: "";
+  background-color: rgba(255, 255, 255, .1);
+  border-radius: 5px;
+}
+
+.product-device-2 {
+  top: -25%;
+  right: auto;
+  bottom: 0;
+  left: 5%;
+  background-color: #e5e5e5;
+}
+
+
+/*
+ * Extra utilities
+ */
+
+.flex-equal > * {
+  -ms-flex: 1;
+  flex: 1;
+}
+@media (min-width: 768px) {
+  .flex-md-equal > * {
+    -ms-flex: 1;
+    flex: 1;
+  }
+}
+
+.overflow-hidden { overflow: hidden; }

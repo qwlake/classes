@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+@font-face { font-family: 'NanumBarunpen'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumBarunpen.woff') format('woff'); font-weight: normal; font-style: normal; }
+body{
+    font-family: 'NanumBarunpen';
+}
+footer {
+    display: block;
+}
+.content {
+    min-height: calc(100vh - 120px);
+}
+.footer-container {
+    position: relative;
+    margin: 0 auto -155px;
+}
+#footer-link {
+    color:black;
+    text-decoration: none;
+}
+#footer-link:hover {
+    background-color: #FF6F61;
+    color: white;
+}
+#footer-wrapper {
+    text-align: center;
+
+}
+.list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.navbar {
+    position:fixed;
+    top:0px;
+    left:0px;
+    width:100%;
+    z-index:10;
+}
+.navbar-list {
+    background-color: #FF6F61;
+}
+.navbar-item {
+    float: left;
+}
+.navbar-link {
+    font-size: 30px;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: white;
+    color: #FF6F61;
+}
+
+    </style>
+</head>
+<body>
+<nav class="navbar">
+    <ul class="navbar-list list">
+        <li class="navbar-item"><a class="navbar-link" href="{% url 'index' %}">Home</a></li>
+        <li class="navbar-item"><a class="navbar-link" href="{% url 'newpost' %}">Write</a></li>
+        <li class="navbar-item"><a class="navbar-link" href="{% url 'imageview' %}">About</a></li>
+    </ul>
+</nav>
+<br>
+<div class="content">
+{% block contents %}
+{% endblock %}
+</div>
+<div class="footer-container">
+<footer>
+    <div id="footer-wrapper">
+    <ul class="list">
+    <li>Posted by: LikeLion Debug Team</li>
+    <li>Contact information: <a id="footer-link" href="https://www.facebook.com/likelionkangwon/">
+        www.facebook.com/likelionkangwon</a></li>
+    <li>Copyright 2019. LikeLion Debug Team all rights reserved.</li>
+    </ul>
+    </div>
+</footer>
+</div>
+<br>
+</body>
+</html>

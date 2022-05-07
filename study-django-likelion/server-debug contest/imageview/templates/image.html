@@ -1,0 +1,58 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About</title>
+    <style>
+@font-face { font-family: 'NanumBarunpen'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumBarunpen.woff') format('woff'); font-weight: normal; font-style: normal; }
+body{
+    font-family: 'NanumBarunpen';
+}
+#img-list {
+    margin-top: 170px;
+    margin-left: auto;
+	margin-right: auto;
+}
+.btn-wrapper {
+    margin-left: auto;
+	margin-right: auto;
+}
+.btn {
+	display: block;
+    width:100px;
+    background-color: #FF6F61;
+    border: none;
+    color:#fff;
+    padding: 15px 0;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    cursor: pointer;
+}
+img {
+	display: block;
+	margin-top: auto;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: auto;
+}
+
+    </style>
+</head>
+<body>
+<div id="img-list">
+    {% for x in imgclass.all %}
+    <div class="imgfd">
+        <h1>{{ x.title }}</h1>
+        <img src="{{ x.image.url }}" height=400>
+        <p>{{ x.description }}</p>
+    </div>
+    {% endfor %}
+    <img src="{% static 'likelion.png' %}" align="center" alt='사진사진'>
+    <div class="btn-wrapper">
+        <button type="button" class="btn" onclick="location.href='{% url 'index' %}'">뒤로가기</button>
+    </div>
+</div>
+</body>
+</html>

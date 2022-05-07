@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block contents %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ImageView</title>
+</head>
+<body>
+	<br><br><br>
+	<div class="container">
+		{% for x in imgclass.all %}
+		<div class="imgfd">
+			<h1>{{ x.title }}</h1>
+			<img src="{{ x.image.url }}" height=400>
+			<p>{{ x.description }}</p>
+		</div>
+		{% endfor %}
+		<img src="{% static 'likelion.png' %}" height=400 alt='사진사진'>
+		<a class="btn btn-outline-success my-2" href="{% url 'index' %}">뒤로가기</a>
+	</div>
+</body>
+</html>
+{% endblock %}
